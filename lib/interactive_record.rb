@@ -57,12 +57,20 @@ end
 def self.find_by(att)
   #binding.pry
   value = att.values.first
+<<<<<<< HEAD
   formatted_value = value.class==Integer ? value : "'#{value}'"
+=======
+  formatted_value = value.class==Fixnum ? value : "#{value}"
+>>>>>>> 64c903c098a4d2e727d98d2c8dec4487b71addbc
 
   sql = "
   SELECT *
   FROM  #{self.table_name}
+<<<<<<< HEAD
   WHERE #{att.keys.first} = #{formatted_value} "
+=======
+  WHERE #{att.keys.first} IS #{formatted_value} "
+>>>>>>> 64c903c098a4d2e727d98d2c8dec4487b71addbc
 
 
   DB[:conn].execute(sql)
